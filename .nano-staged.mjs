@@ -1,14 +1,14 @@
 import {resolve, sep} from 'path';
 
 export default {
-  '*.{js,ts,vue}': 'eslint --cache --fix',
+  '*.{js,ts,tsx}': 'eslint --cache --fix',
 
   /**
    * Run typechecking if any type-sensitive files was staged
    * @param {string[]} filenames
    * @return {string[]}
    */
-  'packages/**/{*.ts,*.vue,tsconfig.json}': ({filenames}) => {
+  'packages/**/{*.ts,*.tsx,tsconfig.json}': ({filenames}) => {
     const pathToPackages = resolve(process.cwd(), 'packages') + sep;
     return Array.from(
       filenames.reduce((set, filename) => {

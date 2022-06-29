@@ -1,11 +1,10 @@
 /* eslint-env node */
 
-import {chrome} from '../../.electron-vendors.cache.json';
-import {join} from 'path';
-import vue from '@vitejs/plugin-vue';
-import {renderer} from 'unplugin-auto-expose';
+import { chrome } from "../../.electron-vendors.cache.json"
+import { join } from "path"
+import { renderer } from "unplugin-auto-expose"
 
-const PACKAGE_ROOT = __dirname;
+const PACKAGE_ROOT = __dirname
 
 /**
  * @type {import('vite').UserConfig}
@@ -16,35 +15,34 @@ const config = {
   root: PACKAGE_ROOT,
   resolve: {
     alias: {
-      '/@/': join(PACKAGE_ROOT, 'src') + '/',
-    },
+      "/@/": join(PACKAGE_ROOT, "src") + "/"
+    }
   },
-  base: '',
+  base: "",
   server: {
     fs: {
-      strict: true,
-    },
+      strict: true
+    }
   },
   build: {
     sourcemap: true,
     target: `chrome${chrome}`,
-    outDir: 'dist',
-    assetsDir: '.',
+    outDir: "dist",
+    assetsDir: ".",
     rollupOptions: {
-      input: join(PACKAGE_ROOT, 'index.html'),
+      input: join(PACKAGE_ROOT, "index.html")
     },
     emptyOutDir: true,
-    brotliSize: false,
+    brotliSize: false
   },
   test: {
-    environment: 'happy-dom',
+    environment: "happy-dom"
   },
   plugins: [
-    vue(),
     renderer.vite({
-      preloadEntry: join(PACKAGE_ROOT, '../preload/src/index.ts'),
-    }),
-  ],
-};
+      preloadEntry: join(PACKAGE_ROOT, "../preload/src/index.ts")
+    })
+  ]
+}
 
-export default config;
+export default config
