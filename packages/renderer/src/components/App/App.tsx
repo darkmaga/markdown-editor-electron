@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from "react"
-import Editor from "./components/Editor/Editor"
+import Editor from "../Editor/Editor"
 
 import "./app.css"
+import Preview from "../Preview/Preview"
 
 const App: React.FC = () => {
   const [doc, setDoc] = useState<string>("# Hello, World!")
@@ -10,6 +11,7 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <Editor onChange={handleDocChange} initialDoc={doc} />
+      <Preview doc={doc} />
     </div>
   )
 }

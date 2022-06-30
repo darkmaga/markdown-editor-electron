@@ -11,7 +11,6 @@ import { historyKeymap } from "@codemirror/history"
 import { history, defaultKeymap } from "@codemirror/commands"
 import {
   bracketMatching,
-  defaultHighlightStyle,
   syntaxHighlighting,
   indentOnInput,
   HighlightStyle
@@ -27,6 +26,18 @@ export const transparentTheme = EditorView.theme({
   "&": {
     backgroundColor: "transparent !important",
     height: "100%"
+  },
+  ".cm-activeLine": {
+    backgroundColor: "transparent !important"
+  },
+  ".cm-lineNumbers": {
+    backgroundColor: "transparent !important"
+  },
+  ".cm-gutterElement": {
+    backgroundColor: "transparent !important"
+  },
+  ".cm-gutters": {
+    backgroundColor: "transparent !important"
   }
 })
 
